@@ -1,0 +1,61 @@
+﻿@model VideoCatalog.Web.Models.CatalogModel
+
+@{
+    ViewBag.Title = "Video Catalog";
+}
+<br/>
+<div class="row">
+    <div class="col-md-10"></div>
+    <div class="col-md-2">
+        <a class="preview-all-link btn btn-primary" href="javascript:void(0)">
+            Preview All
+        </a>
+    </div>
+</div>
+<br/>
+@{
+    int dirs_rows = Convert.ToInt32(Math.Ceiling(Model.Directories.Count/6.0));
+}
+
+@for (int i = 0; i < dirs_rows; i++)
+{
+    <div class="row">
+        @foreach (var item in Model.Directories.Skip(i * 6).Take(6))
+        {
+            <div class="col-sm-3 col-md-2">
+                <a href="/Home/Catalog?dir=@item.Path" class="thumbnail">
+                    <img src="/Images/folder_icon.png" width="160"/>
+                    <div class="caption">
+                        @Html.DisplayTextFor(modelItem => item.Name)
+                    </div>
+                </a>
+            </div>                
+        }
+    </div>
+}
+
+@{
+    int items_rows = Convert.ToInt32(Math.Ceiling(Model.Items.Count/6.0));
+}
+
+@for (int i = 0; i < items_rows; i++)
+{
+    <div class="row">
+        @foreach (var item in Model.Items.Skip(i*6).Take(6))
+        {
+            <div class="col-sm-3 col-md-2 video-thumb-container">
+                <a href="javascript:void(0)" class="thumbnail video-thumb-link" data-file="@item.Path">
+                    <img src="/Home/GetImage?path=@String.Format(item.ThumbnailPath + "_0")" width="160" data-base-path="@item.ThumbnailPath" data-thumb-index="0"/>
+                    <div class="caption">
+                        @Html.DisplayTextFor(modelItem => item.Name)
+                    </div>
+                </a>
+            </div>                
+        }
+    </div>    
+}
+
+@section scripts
+{
+    <script src="~/Scripts/videocatalog.js"></script>
+}
