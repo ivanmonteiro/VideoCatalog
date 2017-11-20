@@ -2,7 +2,7 @@
 
 Author: **Ivan Monteiro Cantalice**
 
-Video catalog shows a page with all your videos the configured directory and you can get a preview of each video when hovering. The UI is browser-based and **self-hosted**. 
+Video catalog shows a page with all your videos the configured directory and you can get a preview of each video when hovering. The UI is browser-based and **self-hosted** with no need to install a web server. Just launch **VideoCatalog.Webserver.exe** and open the browser!
 
 ## Motivation
 
@@ -27,8 +27,11 @@ On post build events, copies the output of the asp.net mvc project
 .Net Framework 4.0 (https://www.microsoft.com/pt-br/download/details.aspx?id=17851)
 
 ## Usage
+**VideoCatalog.WebServer.exe** - Console application that launches the web server. Open this to use the application.
 
-**VideoCatalog.Thumbgen.exe** - Use this to generate the thumbnails using ffmpeg
+**config.xml** - Configure here the base folder of your movie library.
+
+**VideoCatalog.Thumbgen.exe** - Use this to generate the thumbnails using ffmpeg. May take a while to generate all thumbnails for your movie collection.
 
 Usage:
 
@@ -40,12 +43,6 @@ Usage:
 
 -verbose or -v          Outputs information messages (Default: false).
 
-
-**config.xml** - put the base folder of your movie library
-
-**VideoCatalog.WebServer.exe** - Console application that launches the web server.
-
-Just open and a new browser window will open at the video catalog page.
 
 ## Built With
 
