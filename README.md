@@ -49,8 +49,8 @@ Just open and a new browser window will open at the video catalog page.
 
 ## Built With
 
--CassiniDev for self-hosting asp.net mvc web application
+-CassiniDev for self-hosting web application
 
--Bootstrap and jQuery
+-ASP.NET MVC, Bootstrap and jQuery
 
--FFMPEG - To generate thumbnails from video
+-FFMPEG - To generate thumbnails from videos
